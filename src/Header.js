@@ -12,7 +12,7 @@ import './Header.css';
 function Header() {
   const [{ cart }] = useStateValue();
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <nav className="header">

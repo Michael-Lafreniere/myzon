@@ -1,6 +1,9 @@
 .checkoutProduct {
-  padding-top: 0.5rem;
+  padding: 0.3rem 0;
+  margin: 0.5rem 0;
   display: flex;
+  background-color: white;
+  height: max-content;
 }
 
 .checkoutProduct__img {
@@ -23,11 +26,15 @@
 }
 
 .checkoutProduct__title {
-  max-width: 600px;
   font-size: 1rem;
   font-weight: 800;
+  max-width: 600px;
+  padding: 0.2rem;
+  margin-right: 0.1rem;
+  /* border-bottom: 1px solid lightgray; */
 }
 
 .checkoutProduct__rating {
   display: flex;
+  margin-bottom: 0.2rem;
 }

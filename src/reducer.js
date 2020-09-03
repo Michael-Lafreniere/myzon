@@ -1,15 +1,5 @@
 export const initialState = {
-  cart: [
-    {
-      id: '9854723',
-      title:
-        'Acer Predator Helios 300 Gaming Laptop, Intel i7-10750H, NVIDIA GeForce RTX 2060 6GB, 15.6" Full HD 144Hz 3ms IPS Display, 16GB Dual-Channel DDR4, 512GB NVMe SSD, WiFi 6, RGB Keyboard',
-      price: 1289.99,
-      rating: 5,
-      image:
-        'https://images-na.ssl-images-amazon.com/images/I/81iyZv5W83L._AC_SL1500_.jpg',
-    },
-  ],
+  cart: [],
   user: null,
 };
 
@@ -18,11 +8,24 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       return { ...state, cart: [...state.cart, action.item] };
-    case 'REMOVE_FROM_CARD':
-      return { ...state };
+    case 'REMOVE_FROM_CART':
+      let tempCart = [...state.cart];
+
+      const index = state.cart.findIndex(
+        (tempCart) => tempCart.id === action.id
+      );
+
+      if (index >= 0) {
+        tempCart.splice(index, 1);
+      }
+
+      return { ...state, cart: tempCart };
     default:
       return state;
   }
 };
+
+export const getCartTotal = (cart) =>
+  cart?.reduce((amount, item) => amount + item.price, 0);
 
 export default reducer;

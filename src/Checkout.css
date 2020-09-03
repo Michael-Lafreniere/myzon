@@ -1,0 +1,12 @@
+.checkout {
+  display: flex;
+  padding: 0.2rem;
+  background-color: white;
+  height: max-content;
+}
+
+.checkout__title {
+  padding: 0.2rem;
+  margin-right: 0.1rem;
+  border-bottom: 1px solid lightgray;
+}
