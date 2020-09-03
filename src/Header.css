@@ -1,0 +1,79 @@
+:root {
+  --border-radius: 3px;
+}
+
+.header {
+  background-color: #131921;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__logo {
+  width: 100px;
+  margin: 0 20px;
+  margin-top: 18px;
+}
+
+.header__search {
+  display: flex;
+  flex: 1;
+}
+
+.header__searchInput {
+  height: 15px;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.header__searchIcon {
+  color: var(--logo-white);
+  padding: 1px;
+  height: 30px !important;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  background-color: var(--logo-light-red);
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header__link {
+  color: var(--logo-white);
+  text-decoration: none;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+.header__optionLineOne {
+  font-size: 10px;
+}
+
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+}
+
+.header__basketCount {
+  margin: 0 10px;
+}
+
+/* logo white color: F3E8E8 */
+/* logo lighter red: CA1010 */
