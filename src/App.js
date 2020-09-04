@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { auth } from './Firebase';
 // State:
 import { useStateValue } from './StateProvider';
 // Our components:
@@ -7,7 +8,6 @@ import Header from './Header';
 import Home from './Home';
 import Login from './Login';
 import Checkout from './Checkout';
-import { auth } from './Firebase';
 // Sytle:
 import './App.css';
 
@@ -15,7 +15,7 @@ function App() {
   const [, dispatch] = useStateValue();
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         dispatch({
           type: 'SET_USER',
@@ -28,6 +28,11 @@ function App() {
         });
       }
     });
+
+    // Effect cleanup:
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (

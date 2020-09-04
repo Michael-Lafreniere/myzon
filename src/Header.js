@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from './Firebase';
 // State:
 import { useStateValue } from './StateProvider';
 // Images and icons:
@@ -10,9 +11,13 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Header.css';
 
 function Header() {
-  const [{ cart }] = useStateValue();
+  const [{ cart, user }] = useStateValue();
 
-  // console.log(cart);
+  const login = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <nav className="header">
@@ -25,10 +30,12 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to="/login" className="header__link">
-          <div className="header__option">
-            <span className="header__optionLineOne">Hello,</span>
-            <span className="header__optionLineTwo">Sign In</span>
+        <Link to={!user && '/login'} className="header__link">
+          <div onClick={login} className="header__option">
+            <span className="header__optionLineOne">Hello, {user?.email}</span>
+            <span className="header__optionLineTwo">
+              {user ? 'Sign Out' : 'Sign In'}
+            </span>
           </div>
         </Link>
         <Link to="/" className="header__link">
