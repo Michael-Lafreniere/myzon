@@ -10,6 +10,7 @@ import './Checkout.css';
 
 function Checkout() {
   const [{ cart }] = useStateValue();
+
   return (
     <div className="checkout">
       <div className="checkout__left">
